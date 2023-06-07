@@ -1,0 +1,326 @@
+:root {
+    --basic-width: 180px
+  }
+
+  @keyframes sun {
+    from {
+        filter: brightness(95%);
+        outline-offset: 6px;
+    }
+
+    25% {
+        outline-offset: 6.5px;
+    }
+
+    50% {
+        filter: brightness(98%);
+        outline-offset: 7px;
+    }
+
+    75% {
+        filter: brightness(98%);
+        outline-offset: 7.5px;
+    }
+
+    100% {
+        filter: brightness(100%);
+        outline-offset: 8px;
+    }
+  }
+
+  @keyframes sun_reflections_1 {
+    from {
+        filter: brightness(95%); 
+    }
+
+    25% {
+        opacity: 0.75;
+        transform: translate(5px);
+    }
+
+    50% {
+        opacity: 0.5;
+        right: 10px;
+        transform: translate(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(110%);
+        transform: translate(-10px);
+    }
+  }
+
+  @keyframes sun_reflections_2 {
+    from {
+        filter: brightness(95%); 
+    }
+
+    25% {
+        opacity: 0.75;
+        transform: translate(-5px);
+    }
+
+    50% {
+        opacity: 1;
+        z-index: 1;
+        right: 10px;
+        transform: translate(5px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(110%);
+        transform: translate(10px);
+    }
+  }
+
+  @keyframes sun_reflections_3 {
+    from {
+        filter: brightness(95%); 
+    }
+
+    25% {
+        opacity: 0.75;
+        transform: translate(5px);
+    }
+
+    50% {
+        opacity: 1;
+        z-index: 1;
+        transform: translate(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(110%);
+        transform: translate(-10px);
+    }
+  }
+
+  @keyframes sun_reflections_4 {
+    from {
+        filter: brightness(95%); 
+    }
+
+    25% {
+        opacity: 0.5;
+        transform: translate(10px);
+    }
+
+    50% {
+        opacity: 0.75;
+        transform: translate(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        z-index: 2;
+        filter: brightness(110%);
+        transform: translate(-15px);
+    }
+  }
+
+body {
+    width: 1300px;
+    height: 100%;
+}
+
+.frame {
+    width: 500px;
+    height: 500px;
+    background-color: #654321;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0 auto; */
+}
+
+.picture {
+    width: 450px;
+    height: 450px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+}
+
+.sky {
+    height: 40%;
+    background-color: #fad6a5;
+    position: relative;
+    display: flex;
+}
+
+.sea {
+    background-color: #2e99ac;
+    height: 60%; 
+    position: relative;
+    z-index: 1;
+}
+
+.sun {
+    background-color: #ffcc33;
+    width: 40%;
+    height: 40%;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    margin: 0 auto;
+    align-self: flex-end;
+    margin-bottom: 5px;
+    outline: 4px solid #ffcc33;
+    outline-offset: 6px;
+    animation: sun 2s infinite ease alternate;
+}
+
+.yellow_reflections {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    left: 30%;
+}
+
+.orange_reflections {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    left: 31%;
+}
+
+/* .orange_sun_reflection */
+
+.orange_sun_reflection {
+    background-color: #f59d51;
+    height: 12px;
+}
+
+.orange_sun_reflection:first-of-type {
+    margin-top: 16px;
+    width: calc(var(--basic-width) - 20px);
+    animation: sun_reflections_2 infinite linear 2s alternate 
+}
+
+.orange_sun_reflection:nth-of-type(2) {
+    width: calc(var(--basic-width) - 45px);
+    align-self: flex-end;
+    animation: sun_reflections_1 infinite linear 2s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(3) {
+    width: calc(var(--basic-width) - 50px);
+    animation: sun_reflections_3 infinite linear 2s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(4) {
+    width: calc(var(--basic-width) - 65px);
+    align-self: flex-end;
+    animation: sun_reflections_4 infinite linear 2s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(5) {
+    width: calc(var(--basic-width) - 80px);
+    animation: sun_reflections_2 infinite linear 2s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(6) {
+    width: calc(var(--basic-width) - 100px);
+    align-self:flex-end;
+    margin-right: 20px;
+    animation: sun_reflections_1 infinite linear 3s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(7) {
+    width: calc(var(--basic-width) - 115px);
+    animation: sun_reflections_4 infinite linear 2s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(8) {
+    width: calc(var(--basic-width) - 135px);
+    animation: sun_reflections_3 infinite linear 2.5s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(9) {
+    width: calc(var(--basic-width) - 150px);
+    align-self: flex-end;
+    margin-right: 50px;
+    animation: sun_reflections_1 infinite linear 4s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(10) {
+    width: calc(var(--basic-width) - 150px);
+    animation: sun_reflections_3 infinite linear 2s alternate-reverse
+}
+
+.orange_sun_reflection:nth-of-type(11) {
+    margin-top: -3px;
+    width: calc(var(--basic-width) - 170px);
+    animation: sun_reflections_2 infinite linear 3.5s alternate-reverse
+}
+
+/* .yellow_sun_reflection */
+
+.yellow_sun_reflection {
+    background-color: #fcdf61;
+    height: 12px;
+}
+
+.yellow_sun_reflection:first-of-type {
+    margin-top: 10px;
+    width: var(--basic-width);  
+    animation: sun_reflections_1 infinite linear 2.5s alternate-reverse
+} 
+    
+
+.yellow_sun_reflection:nth-of-type(2) {
+    width: calc(var(--basic-width) - 15px);
+    animation: sun_reflections_2 infinite linear 2s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(3) {
+    width: calc(var(--basic-width) - 30px);
+    animation: sun_reflections_4 infinite linear 4s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(4) {
+    width: calc(var(--basic-width) - 45px);
+    animation: sun_reflections_2 infinite linear 3s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(5) {
+    width: calc(var(--basic-width) - 60px);
+    animation: sun_reflections_1 infinite linear 2.8s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(6) {
+    width: calc(var(--basic-width) - 75px);
+    animation: sun_reflections_4 infinite linear 2.5s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(7) {
+    width: calc(var(--basic-width) - 90px);
+    animation: sun_reflections_3 infinite linear 2s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(8) {
+    width: calc(var(--basic-width) - 105px);
+    animation: sun_reflections_1 infinite linear 3.5s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(9) {
+    width: calc(var(--basic-width) - 120px);
+    animation: sun_reflections_2 infinite linear 4s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(10) {
+    width: calc(var(--basic-width) - 135px);
+    animation: sun_reflections_4 infinite linear 2.5s alternate-reverse
+}
+
+.yellow_sun_reflection:nth-of-type(11) {
+    width: calc(var(--basic-width) - 150px);
+    animation: sun_reflections_4 infinite linear 3s alternate-reverse
+}
